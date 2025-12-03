@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import { Menu, X, Linkedin, Mail } from 'lucide-react';
 import './App.css';
 
 type Page = 'work' | 'play' | 'info';
