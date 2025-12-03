@@ -21,7 +21,7 @@ const PROJECTS: Project[] = [
   {
     id: '1',
     title: 'Halo',
-    subtitle: 'Product Design',
+    subtitle: 'UI/UX Design, Product Design, Personal Project',
     year: '2024',
     category: 'Product Design',
     tags: ['UX Design', 'Mobile App', 'Health & Wellness'],
@@ -31,12 +31,22 @@ const PROJECTS: Project[] = [
   {
     id: '2',
     title: 'On The Spot',
-    subtitle: 'Personal Project',
+    subtitle: 'Personal Project, Social Innovation Design, UIUX Design',
     year: '2024',
     category: 'User Experience Design',
     tags: ['Mobile App', 'UX Research', 'Prototyping'],
     description: 'Trip planning app addressing the challenge of managing limited time between scheduled activities with curated plans and flexible itineraries.',
     image: '/images/Frame 2608267.png',
+  },
+  {
+    id: '3',
+    title: 'Kompanion',
+    subtitle: 'Product Design, Personal Project',
+    year: '2024',
+    category: 'Experimental',
+    tags: ['Creative Exploration', 'Concept Design'],
+    description: 'An interactive, tangible, and playful way to nurture, grow, and strengthen your long-distance friendship.',
+    image: '/images/Frame 260826.png',
   },
 ];
 
@@ -195,7 +205,7 @@ function App() {
 
               <div className="project-detail-info">
                 <div className="project-info-item">
-                  <h4>ROLE</h4>
+                  <h4>TYPE</h4>
                   <p>{selectedProject.subtitle}</p>
                 </div>
                 <div className="project-info-item">
@@ -205,13 +215,26 @@ function App() {
                 <div className="project-info-item">
                   <h4>TOOLS</h4>
                   <div className="project-tools">
-                    <span className="tool-tag">Figma</span>
-                    <span className="tool-tag">User Research</span>
-                    <span className="tool-tag">Prototyping</span>
+                    {selectedProject.id !== '3' && (
+                      <>
+                        <span className="tool-tag">Figma</span>
+                        <span className="tool-tag">User Research</span>
+                        <span className="tool-tag">Prototyping</span>
+                      </>
+                    )}
                     {selectedProject.id === '1' && (
                       <>
                         <span className="tool-tag">SolidWorks</span>
                         <span className="tool-tag">Keyshot</span>
+                      </>
+                    )}
+                    {selectedProject.id === '3' && (
+                      <>
+                        <span className="tool-tag">Physical Computing</span>
+                        <span className="tool-tag">Arduino</span>
+                        <span className="tool-tag">Prototyping</span>
+                        <span className="tool-tag">Product Design</span>
+                        <span className="tool-tag">Researching</span>
                       </>
                     )}
                   </div>
@@ -219,13 +242,22 @@ function App() {
               </div>
 
               <div className="project-detail-body">
-                <h2>{selectedProject.id === '1' ? 'Smart bassinet for co-sleeping to reduce parental stress' : 'Managing limited time between scheduled activities'}</h2>
+                <h2>
+                  {selectedProject.id === '1' && 'Smart bassinet for co-sleeping to reduce parental stress'}
+                  {selectedProject.id === '2' && 'Managing limited time between scheduled activities'}
+                  {selectedProject.id === '3' && 'Experimental design exploration'}
+                </h2>
                 <p className="project-intro">{selectedProject.description}</p>
                 
-                <div className="project-section">
-                  <h3>Problem</h3>
-                  <p>Travelers struggle to manage limited time between scheduled activities, leading to missed opportunities for nearby experiences.</p>
-                </div>
+                {selectedProject.id !== '3' && (
+                  <div className="project-section">
+                    <h3>Problem</h3>
+                    <p>
+                      {selectedProject.id === '1' && 'New parents experience high anxiety and stress when caring for newborns, especially regarding sleep safety and monitoring.'}
+                      {selectedProject.id === '2' && 'Travelers struggle to manage limited time between scheduled activities, leading to missed opportunities for nearby experiences.'}
+                    </p>
+                  </div>
+                )}
 
                 {selectedProject.id === '2' && (
                   <div className="project-images">
@@ -244,9 +276,21 @@ function App() {
                   </div>
                 )}
 
+                {selectedProject.id === '3' && (
+                  <div className="project-images">
+                    <img src="/images/Frame 2608242.png" alt="Kompanion - Frame 1" className="full-bleed-image" />
+                    <img src="/images/Frame 2608243.png" alt="Kompanion - Frame 2" className="full-bleed-image" />
+                    <img src="/images/Frame 2608244.png" alt="Kompanion - Frame 3" className="full-bleed-image" />
+                  </div>
+                )}
+
                 <div className="project-section">
                   <h3>Outcome</h3>
-                  <p>Developed a mobile app that helps users maximize their free time with personalized activity recommendations based on location and available time.</p>
+                  <p>
+                    {selectedProject.id === '1' && 'Created a comprehensive system combining a smart bassinet with a mobile app to monitor baby health metrics and reduce parental anxiety.'}
+                    {selectedProject.id === '2' && 'Developed a mobile app that helps users maximize their free time with personalized activity recommendations based on location and available time.'}
+                    {selectedProject.id === '3' && 'An interactive device that aim to create a meaningful, interactive way for friends to nurture their bond, even when separated in physical long distance, ensuring that the relationships remain alive, tangible, and enduring.'}
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -264,7 +308,7 @@ function App() {
               transition={{ duration: 0.6 }}
               className="page-content"
             >
-              <h1 className="page-title">Professional Work</h1>
+              <h1 className="page-title">Work</h1>
               
               <div className="work-grid">
                 {PROJECTS.slice(0, 2).map((project, index) => (
@@ -440,32 +484,16 @@ function App() {
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
+                  onClick={() => openProjectDetail(PROJECTS[2])}
                   onMouseEnter={() => setCursorVariant('project')}
                   onMouseLeave={() => setCursorVariant('default')}
                 >
                   <div className="play-image">
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=600&fit=crop" alt="Motion Exploration" />
+                    <img src="/images/Frame 260826.png" alt="Kompanion" />
                   </div>
                   <div className="play-info">
                     <span className="play-category">Experimental</span>
-                    <h3 className="play-title">Motion Exploration</h3>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  className="play-card"
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  onMouseEnter={() => setCursorVariant('project')}
-                  onMouseLeave={() => setCursorVariant('default')}
-                >
-                  <div className="play-image">
-                    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=600&fit=crop" alt="3D Product Viewer" />
-                  </div>
-                  <div className="play-info">
-                    <span className="play-category">Prototype</span>
-                    <h3 className="play-title">3D Product Viewer</h3>
+                    <h3 className="play-title">Kompanion</h3>
                   </div>
                 </motion.div>
               </div>
