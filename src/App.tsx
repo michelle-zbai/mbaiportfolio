@@ -51,7 +51,6 @@ const PROJECTS: Project[] = [
 ];
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<Page>('work');
   const [currentView, setCurrentView] = useState<'home' | Page>('home');
   const [menuOpen, setMenuOpen] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
@@ -74,7 +73,6 @@ function App() {
   };
 
   const scrollToSection = (page: Page) => {
-    setCurrentPage(page);
     setMenuOpen(false);
     setCurrentView(page);
     setSelectedProject(null);
