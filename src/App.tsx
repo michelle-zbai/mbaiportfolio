@@ -121,7 +121,7 @@ function App() {
             {(['work', 'play', 'info'] as Page[]).map((page, i) => (
               <motion.button
                 key={page}
-                className={`nav-link ${currentPage === page ? 'active' : ''}`}
+                className={`nav-link ${currentView === page ? 'active' : ''}`}
                 onClick={() => scrollToSection(page)}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -156,7 +156,7 @@ function App() {
             {(['work', 'play', 'info'] as Page[]).map((page) => (
               <button
                 key={page}
-                className={`mobile-menu-link ${currentPage === page ? 'active' : ''}`}
+                className={`mobile-menu-link ${currentView === page ? 'active' : ''}`}
                 onClick={() => scrollToSection(page)}
               >
                 {page.charAt(0).toUpperCase() + page.slice(1)}
@@ -343,9 +343,9 @@ function App() {
           <div className="container">
             <div className="footer-content">
               <div className="footer-left">
-                <p>&copy; 2025 All Rights Reserved</p>
+                <p>Michelle Bai</p>
               </div>
-              <div className="footer-links">
+              <div className="footer-center">
                 <a
                   href="mailto:zymichellebai@gmail.com"
                   className="footer-link"
@@ -365,6 +365,9 @@ function App() {
                   LinkedIn
                 </a>
               </div>
+              <div className="footer-right">
+                <p>&copy; 2025 All Rights Reserved</p>
+              </div>
             </div>
           </div>
         </footer>
@@ -382,18 +385,15 @@ function App() {
                 className="hero-content"
               >
                 <h1 className="hero-title">
-                  Michelle Bai is a product designer specializing in UX, prototyping, and digital experiences.
+                  <span className="hero-name">Michelle Bai</span>
+                  <span className="hero-subtitle">is a product designer specializing in UX Design, Prototyping, and Digital Experience</span>
                 </h1>
                 
                 <div className="hero-tags">
-                  <span className="hero-tag">UX Design</span>
-                  <span className="hero-tag">Prototyping</span>
                   <span className="hero-tag">Product Design</span>
+                  <span className="hero-tag">Industrial Design</span>
+                  <span className="hero-tag">UX Research</span>
                 </div>
-
-                <p className="hero-description">
-                  Creating meaningful digital products through user-centered design, iterative prototyping, and attention to detail.
-                </p>
               </motion.div>
             </div>
           </section>
@@ -437,9 +437,9 @@ function App() {
             <div className="container">
               <div className="footer-content">
                 <div className="footer-left">
-                  <p>&copy; 2025 All Rights Reserved</p>
+                  <p>Michelle Bai</p>
                 </div>
-                <div className="footer-links">
+                <div className="footer-center">
                   <a
                     href="mailto:zymichellebai@gmail.com"
                     className="footer-link"
@@ -458,6 +458,9 @@ function App() {
                   >
                     LinkedIn
                   </a>
+                </div>
+                <div className="footer-right">
+                  <p>&copy; 2025 All Rights Reserved</p>
                 </div>
               </div>
             </div>
@@ -508,9 +511,9 @@ function App() {
           <div className="container">
             <div className="footer-content">
               <div className="footer-left">
-                <p>&copy; 2025 All Rights Reserved</p>
+                <p>Michelle Bai</p>
               </div>
-              <div className="footer-links">
+              <div className="footer-center">
                 <a
                   href="mailto:zymichellebai@gmail.com"
                   className="footer-link"
@@ -529,6 +532,9 @@ function App() {
                 >
                   LinkedIn
                 </a>
+              </div>
+              <div className="footer-right">
+                <p>&copy; 2025 All Rights Reserved</p>
               </div>
             </div>
           </div>
@@ -703,9 +709,9 @@ function App() {
           <div className="container">
             <div className="footer-content">
               <div className="footer-left">
-                <p>&copy; 2025 All Rights Reserved</p>
+                <p>Michelle Bai</p>
               </div>
-              <div className="footer-links">
+              <div className="footer-center">
                 <a
                   href="mailto:zymichellebai@gmail.com"
                   className="footer-link"
@@ -724,6 +730,9 @@ function App() {
                 >
                   LinkedIn
                 </a>
+              </div>
+              <div className="footer-right">
+                <p>&copy; 2025 All Rights Reserved</p>
               </div>
             </div>
           </div>

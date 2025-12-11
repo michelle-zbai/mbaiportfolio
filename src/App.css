@@ -81,10 +81,12 @@
   padding: 0.5rem 0;
   position: relative;
   transition: opacity 0.3s;
+  text-decoration: none;
 }
 
 .nav-link:hover {
   opacity: 0.6;
+  text-decoration: underline;
 }
 
 .nav-link::after {
@@ -94,6 +96,7 @@
 .nav-link.active {
   opacity: 1;
   color: var(--color-text);
+  text-decoration: underline;
 }
 
 .menu-toggle {
@@ -163,6 +166,19 @@
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.02em;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.hero-name {
+  display: block;
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  display: block;
+  font-weight: 400;
 }
 
 .hero-tags {
@@ -521,11 +537,27 @@
   justify-content: space-between;
   align-items: center;
   color: var(--color-text-muted);
-  font-size: 0.875rem;
 }
 
 .footer-left {
   text-align: left;
+  flex: 1;
+  font-size: 1.25rem;
+}
+
+.footer-center {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.footer-right {
+  text-align: right;
+  flex: 1;
+  font-size: 0.5rem;
 }
 
 .footer-tagline {
@@ -545,13 +577,13 @@
   justify-content: center;
   transition: opacity 0.3s;
   color: var(--color-text-muted);
-  font-size: 0.875rem;
+  font-size: 1.25rem;
   text-decoration: underline;
   text-decoration-color: transparent;
 }
 
 .footer-link:hover {
-  opacity: 0.6;
+  opacity: 1;
   text-decoration-color: var(--color-text-muted);
 }
 
@@ -651,6 +683,7 @@
 
 .info-intro {
   margin-bottom: 4rem;
+  margin-top: 3rem;
 }
 
 .info-intro p {
@@ -1032,8 +1065,13 @@
 }
 
 .project-detail-body {
-  padding: 4rem;
+  padding: 4rem 0;
   max-width: 900px;
+  margin: 0 auto;
+}
+
+.project-detail-body > *:not(.project-images) {
+  padding: 0 4rem;
 }
 
 .project-detail-body h2 {
@@ -1075,26 +1113,28 @@
 .project-images {
   margin-top: 4rem;
   margin-left: 0;
-  margin-right: -4rem;
+  margin-right: 0;
+  padding: 0 4rem;
   display: flex;
   flex-direction: column;
   gap: 0;
+  align-items: center;
 }
 
 .full-bleed-image {
-  width: calc(100% + 4rem);
+  width: 100%;
   display: block;
   height: auto;
 }
 
 @media (max-width: 768px) {
   .project-images {
-    margin-left: 0;
-    margin-right: -2rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .full-bleed-image {
-    width: calc(100% + 2rem);
+    width: 100%;
   }
 }
 
