@@ -48,6 +48,16 @@ const PROJECTS: Project[] = [
     description: 'An interactive, tangible, and playful way to nurture, grow, and strengthen your long-distance friendship.',
     image: '/images/Frame 260826.png',
   },
+  {
+    id: '4',
+    title: 'The Algorithmic Seer',
+    subtitle: 'Experimental Design, Personal Project',
+    year: '2024',
+    category: 'Experimental',
+    tags: ['Creative Exploration', 'Concept Design'],
+    description: 'The Algorithmic Seer is a fortunetelling system that combines traditional divination and AI technology. It aims to discuss when people are seeking directions or ideas, if they will fit themselves into the general assumptions by the fortuneteller even if it is random.',
+    image: '/images/Slide 16_9 - 24.png',
+  },
 ];
 
 function App() {
@@ -208,12 +218,12 @@ function App() {
                 </div>
                 <div className="project-info-item">
                   <h4>TIMELINE</h4>
-                  <p>4 months</p>
+                  <p>{selectedProject.id === '4' ? '3 months' : '4 months'}</p>
                 </div>
                 <div className="project-info-item">
                   <h4>TOOLS</h4>
                   <div className="project-tools">
-                    {selectedProject.id !== '3' && (
+                    {selectedProject.id !== '3' && selectedProject.id !== '4' && (
                       <>
                         <span className="tool-tag">Figma</span>
                         <span className="tool-tag">User Research</span>
@@ -235,6 +245,14 @@ function App() {
                         <span className="tool-tag">Researching</span>
                       </>
                     )}
+                    {selectedProject.id === '4' && (
+                      <>
+                        <span className="tool-tag">Figma</span>
+                        <span className="tool-tag">Prototyping</span>
+                        <span className="tool-tag">NFC</span>
+                        <span className="tool-tag">Product Design</span>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -247,15 +265,14 @@ function App() {
                 </h2>
                 <p className="project-intro">{selectedProject.description}</p>
                 
-                {selectedProject.id !== '3' && (
-                  <div className="project-section">
-                    <h3>Problem</h3>
-                    <p>
-                      {selectedProject.id === '1' && 'New parents experience high anxiety and stress when caring for newborns, especially regarding sleep safety and monitoring.'}
-                      {selectedProject.id === '2' && 'Travelers struggle to manage limited time between scheduled activities, leading to missed opportunities for nearby experiences.'}
-                    </p>
-                  </div>
-                )}
+                <div className="project-section">
+                  <h3>Problem</h3>
+                  <p>
+                    {selectedProject.id === '1' && 'New parents experience high anxiety and stress when caring for newborns, especially regarding sleep safety and monitoring.'}
+                    {selectedProject.id === '2' && 'Travelers struggle to manage limited time between scheduled activities, leading to missed opportunities for nearby experiences.'}
+                    {selectedProject.id === '4' && "\"Should I go try it out?\" \"What is going on in my life?\" \"I need some help and direction.\" When we walk by psychic and tarot card reading stores or booths on the streets, in carnivals, and in markets, we often are curious and have a slight urge to go and see what it is like. So why do people want to get their 'future read' by complete strangers? And possibly trusting them with their secrets? Through everything happening in the world today, no doubt it is getting hard and sometimes futile. Now, younger generations are turning to divination and fortunetelling as form of therapy. As mentioned, the involvement of technology has greatly aided the bloom. During and after the pandemic, \"tarot readings have also shifted to the online and video-call realm\" (medium.com). Through personal readings and general predictions on TikTok, Instagram, and any other platforms, divination seeps into every crack of everyone's lives. \"For tarot alone, related hashtags on TikTok have received views from anywhere between 500 million to 6 billion... It's unsurprising that so many millennials and Gen Zers... are exposed and turn to astrology and tarot as an answer to their problems\" (medium.com)."}  
+                  </p>
+                </div>
 
                 {selectedProject.id === '2' && (
                   <div className="project-images">
@@ -282,12 +299,22 @@ function App() {
                   </div>
                 )}
 
+                {selectedProject.id === '4' && (
+                  <div className="project-images">
+                    <img src="/images/Slide 16_9 - 2.png" alt="The Algorithmic Seer - Slide 1" className="full-bleed-image" />
+                    <img src="/images/Slide 16_9 - 3.png" alt="The Algorithmic Seer - Slide 2" className="full-bleed-image" />
+                    <img src="/images/Slide 16_9 - 10.png" alt="The Algorithmic Seer - Slide 3" className="full-bleed-image" />
+                    <img src="/images/Slide 16_9 - 11.png" alt="The Algorithmic Seer - Slide 4" className="full-bleed-image" />
+                  </div>
+                )}
+
                 <div className="project-section">
                   <h3>Outcome</h3>
                   <p>
                     {selectedProject.id === '1' && 'Created a comprehensive system combining a smart bassinet with a mobile app to monitor baby health metrics and reduce parental anxiety.'}
                     {selectedProject.id === '2' && 'Developed a mobile app that helps users maximize their free time with personalized activity recommendations based on location and available time.'}
                     {selectedProject.id === '3' && 'An interactive device that aim to create a meaningful, interactive way for friends to nurture their bond, even when separated in physical long distance, ensuring that the relationships remain alive, tangible, and enduring.'}
+                    {selectedProject.id === '4' && 'This project discussed what it means to "have your future told", whether it substitutes a placebo effect for ones who just need something to believe or a seems-to-be-professional person to vent to. And presented it in a fun, interactive way where the user gets their fortune told by a randomized algorithm.'}
                   </p>
                 </div>
               </div>
@@ -495,6 +522,23 @@ function App() {
                   <div className="play-info">
                     <span className="play-category">Experimental</span>
                     <h3 className="play-title">Kompanion</h3>
+                  </div>
+                </motion.div>
+                <motion.div
+                  className="play-card"
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  onClick={() => openProjectDetail(PROJECTS[3])}
+                  onMouseEnter={() => setCursorVariant('project')}
+                  onMouseLeave={() => setCursorVariant('default')}
+                >
+                  <div className="play-image">
+                    <img src="/images/Frame 260826.png" alt="The Algorithmic Seer" />
+                  </div>
+                  <div className="play-info">
+                    <span className="play-category">Experimental</span>
+                    <h3 className="play-title">The Algorithmic Seer</h3>
                   </div>
                 </motion.div>
               </div>
