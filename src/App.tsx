@@ -599,7 +599,7 @@ function App() {
                   <p>I'm Michelle Bai, a product designer based in Durham, NC. I specialize in creating user-centered digital products through research, prototyping, and iterative design.</p>
                   <p>As a user-centered product and industrial designer, I bridge the gap between digital and physical experiences to create meaningful, human-driven solutions. With a background in branding strategy, research, and design innovation, I approach design as both a creative and analytical process. I love working in highly collaborative environments, ideating and finding connections between 2D and 3D to transform concepts into tangible, meaningful experiences through sketches, models, and visual storytelling. People come first in my work, crafting products that are not only functional and visually compelling but also spark curiosity, and joy—bringing thoughtful innovation to everyday experiences.</p>
                   <div className="resume-download">
-                    <a href="/ZiyueBaiResume.pdf" download="ZiyueBaiResume.pdf" className="download-btn" target="_blank" rel="noopener noreferrer">
+                    <a href="/images/ZiyueBaiResume.pdf" download="ZiyueBaiResume.pdf" className="download-btn" target="_blank" rel="noopener noreferrer">
                       <span className="download-icon">↓</span> Download Resume
                     </a>
                   </div>
